@@ -1,0 +1,24 @@
+--- a/cozette.bdf
++++ b/cozette.bdf
+@@ -503,9 +503,8 @@
+ ENCODING 32
+ SWIDTH 500 0
+ DWIDTH 6 0
+-BBX 1 1 6 -1
++BBX 0 0 6 -1
+ BITMAP
+-00
+ ENDCHAR
+ STARTCHAR exclam
+ ENCODING 33
+@@ -1880,9 +1879,8 @@
+ ENCODING 160
+ SWIDTH 500 0
+ DWIDTH 6 0
+-BBX 1 1 6 -1
++BBX 0 0 6 -1
+ BITMAP
+-00
+ ENDCHAR
+ STARTCHAR exclamdown
+ ENCODING 161

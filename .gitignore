@@ -1,0 +1,6 @@
+custom.set
+custom.equivalents
+*.bdf
+*.psf
+
+!/kst/*

@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+# bdfdump: dump all the characters in a bdf font
+
+# the output format is bdf2psf's symbol table
+
+import sys
+import re
+
+def dump_chars(s):
+    pattern = re.compile(r"^STARTCHAR\s+(.+)\nENCODING\s+(.+)$", re.MULTILINE)
+
+    for match in pattern.finditer(s):
+        name, enc = match.groups()
+        enc = int(enc)
+        if enc >= 0:
+            if enc >= 0x20: # below that are control chars
+                print(f"U+{enc:04x}    # {chr(enc)} {name}")
+            else:
+                print(f"U+{enc:04x}    #   {name}")
+
+if len(sys.argv) < 2:
+    print("usage: bdfdump font.bdf", file=sys.stderr)
+    sys.exit(1)
+
+name = sys.argv[1]
+with open(name, "r") as f:
+    t = dump_chars(f.read())

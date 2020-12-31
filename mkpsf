@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ $# -lt 4 ]; then
+  echo "usage : $0 def.equivalants def.set in.bdf out.psf"
+  exit 1
+fi
+
+EQUIV="$1"
+SYMBOLS="$2"
+
+[ -f custom.equivalents ] && EQUIV=custom.equivalents
+[ -f custom.set ] && SYMBOLS=custom.set
+
+bdf2psf --fb "$3" "$EQUIV" "$SYMBOLS" 512 "$4"
